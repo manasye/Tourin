@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Tourin - A data dashboard for flight tickets</title>
+
+    <!-- Vendor css -->
+    <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="lib/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="lib/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link href="lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+
+    <!-- Slim CSS -->
+    <link rel="stylesheet" href="css/slim.css">
+
+</head>
+
+<body class="dashboard-4">
+    <div class="slim-header">
+        <div class="container">
+            <div class="slim-header-left">
+                <h2 class="slim-logo">
+                    <a href="tourin.html">
+                        tour.in
+                    </a>
+                </h2>
+
+            </div>
+            <div class="slim-header-right">
+                <!-- <div class="search-box">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <button class="btn btn-primary">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div> -->
+                <!-- search-box -->
+            </div>
+            <!-- header-right -->
+        </div>
+        <!-- container -->
+    </div>
+    <!-- Header -->
+
+    <div class="slim-navbar">
+        <div class="container">
+            <ul class="nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="tourin.html">
+                        <i class="icon ion-ios-home-outline"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="analyze.html">
+                        <i class="icon ion-ios-pulse"></i>
+                        <span>Analyze</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">
+                        <i class="icon ion-ios-people-outline"></i>
+                        <span>Team</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- container -->
+    </div>
+    <!-- Navbar -->
+
+    <div class="slim-mainpanel">
+        <div class="container pd-t-50">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="tx-inverse mg-b-15 slim-pagetitle">Data Dashboard</h3>
+                    <p class="mg-b-40" style="font-size: 15px;">This is an implementation of data dashboard for education purposes. All the data scrapped from
+                        <a href="https://www.tiket.com/" target="_blank">tiket.com </a>
+                        and we visualize it in this website. Enjoy !!</p>
+
+                    <h6 class="slim-card-title mg-b-15">Tickets Summary</h6>
+                    <div class="row no-gutters">
+                        <div class="col-sm-6">
+                            <div class="card card-earning-summary">
+                                <h6>Total Tickets Scrapped</h6>
+                                <!-- script here -->
+                                <h1>1000</h1>
+                                <span>Based on data collected</span>
+                            </div>
+                            <!-- card -->
+                        </div>
+                        <!-- col-6 -->
+                        <div class="col-sm-6">
+                            <div class="card card-earning-summary mg-sm-l--1 bd-t-0 bd-sm-t">
+                                <h6>Total Days Scrapped</h6>
+                                <!-- script here -->
+                                <h1>30</h1>
+                                <span>Based on data collected</span>
+                            </div>
+                            <!-- card -->
+                        </div>
+                        <!-- col-6 -->
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- col-6 -->
+                <div class="col-lg-6">
+                    <div class="card card-sales">
+                        <h5 class="slim-card-title tx-primary" style="font-size: 14px;">Report Per Time</h5>
+                        <div class="row">
+                            <div class="col">
+                                <label class="tx-12">Daily</label>
+                                <p>1,898</p>
+                            </div>
+                            <!-- col -->
+                            <div class="col">
+                                <label class="tx-12">Weekly</label>
+                                <p>32,112</p>
+                            </div>
+                            <!-- col -->
+                            <div class="col">
+                                <label class="tx-12">This Month</label>
+                                <p>72,067</p>
+                            </div>
+                            <!-- col -->
+                        </div>
+                        <!-- row -->
+
+                        <div class="progress mg-b-5">
+                            <div class="progress-bar bg-primary wd-100p" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100% done</div>
+                        </div>
+                        <p class="tx-12 mg-b-0" style="margin-top: 2vh;">Above is the total number of data tickets per certain amount of time. We scrape airline ticket that
+                            going to Jakarta and from four big cities in Indonesia.
+                        </p>
+                    </div>
+                    <!-- card -->
+                </div>
+                <!-- col-lg-6 -->
+            </div>
+            <!-- row -->
+
+            <div class="row" style="margin-top: 4vh; margin-bottom: 4vh;">
+                <div class="col-lg-6">
+                    <div class="card card-body">
+                        <h6 class="slim-card-title mg-b-15" style="text-align: center;">Total tickets per departure place</h6>
+                        <canvas id="chartPie" height="300" style="margin-top: 2vh;"></canvas>
+                    </div>
+                    <!-- card -->
+                </div>
+                <!-- col -->
+                <div class="col-lg-6">
+                    <div class="card card-body">
+                    </div>
+                    <!-- card -->
+                </div>
+                <!-- col -->
+            </div>
+            <!-- row -->
+
+            <script src="lib/jquery/js/jquery.js"></script>
+            <script src="lib/popper.js/js/popper.js"></script>
+            <script src="lib/bootstrap/js/bootstrap.js"></script>
+            <script src="lib/jquery.cookie/js/jquery.cookie.js"></script>
+            <script src="lib/chart.js/js/Chart.js"></script>
+
+            <script src="js/slim.js"></script>
+            <script src="js/chart.chartjs.js"></script>
+</body>
+
+</html>
