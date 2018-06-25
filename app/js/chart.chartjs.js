@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
   'use strict';
 
   // var ctx1 = document.getElementById('chartBar1').getContext('2d');
@@ -508,7 +508,8 @@ $(function(){
         '#F57E2E',
         '#C8E0E4'
       ]
-    }], labels: ['KNO', 'DPS', 'SBY', 'JOG']
+    }],
+    labels: ['KNO', 'DPS', 'SBY', 'JOG']
   };
 
   var optionpie = {
