@@ -47873,6 +47873,7 @@ $(function () {
     secondWeek = 0,
     thirdWeek = 0,
     fourthWeek = 0;
+
   var dpsNum = 0,
     subNum = 0,
     jogNum = 0,
@@ -47880,17 +47881,29 @@ $(function () {
     sriwijayaNum = 0,
     garudaNum = 0,
     jetstarNum = 0;
+
   var lionNum = 0,
     wingsNum = 0,
     namairNum = 0,
     airasiaNum = 0,
     batikNum = 0,
     citilinkNum = 0;
+
   var dpsAvgPrice = [],
     subAvgPrice = [],
     jogAvgPrice = [],
     knoAvgPrice = [],
     daysTitle = [];
+
+  var sriwijayaData = [],
+    lionData = [],
+    wingsData = [],
+    namairData = [],
+    airasiaData = [],
+    batikData = [],
+    citilinkData = [],
+    garudaData = [],
+    jetstarData = [];
 
   for (var id in tickets) {
     // Count number of tickets weekly
@@ -47908,10 +47921,31 @@ $(function () {
       subPrice = 0,
       jogPrice = 0,
       knoPrice = 0;
+
     var countDps = 0,
       countSub = 0,
       countJog = 0,
       countKno = 0;
+
+    var lionCount = 0,
+      wingsCount = 0,
+      namairCount = 0,
+      airasiaCount = 0,
+      batikCount = 0,
+      citilinkCount = 0,
+      sriwijayaCount = 0,
+      garudaCount = 0,
+      jetstarCount = 0;
+
+    var sriwijayaPrice = 0,
+      lionPrice = 0,
+      wingsPrice = 0,
+      namairPrice = 0,
+      airasiaPrice = 0,
+      batikPrice = 0,
+      citilinkPrice = 0,
+      garudaPrice = 0,
+      jetstarPrice = 0;
 
     tickets[id].forEach(element => {
       // Count number of tickets based on city departure
@@ -47935,22 +47969,40 @@ $(function () {
 
       // Count number of tickets based on airlines used
       if (element.airlines === 'SRIWIJAYA') {
+        sriwijayaPrice += parseInt(element.price);
+        sriwijayaCount++;
         sriwijayaNum++;
       } else if (element.airlines === 'GARUDA') {
+        garudaPrice += parseInt(element.price);
+        garudaCount++;
         garudaNum++;
       } else if (element.airlines === 'LION') {
+        lionPrice += parseInt(element.price);
+        lionCount++;
         lionNum++;
       } else if (element.airlines === 'WINGS') {
+        wingsPrice += parseInt(element.price);
+        wingsCount++;
         wingsNum++;
       } else if (element.airlines === 'NAMAIR') {
+        namairPrice += parseInt(element.price);
+        namairCount++;
         namairNum++;
       } else if (element.airlines === 'AIRASIA') {
+        airasiaPrice += parseInt(element.price);
+        airasiaCount++;
         airasiaNum++;
       } else if (element.airlines === 'BATIK') {
+        batikPrice += parseInt(element.price);
+        batikCount++;
         batikNum++;
       } else if (element.airlines === 'CITILINK') {
+        citilinkPrice += parseInt(element.price);
+        citilinkCount++;
         citilinkNum++;
       } else if (element.airlines === 'JETSTAR') {
+        jetstarPrice += parseInt(element.price);
+        jetstarCount++;
         jetstarNum++;
       }
     });
@@ -47966,15 +48018,19 @@ $(function () {
 
     // Push day's title
     daysTitle.push(id);
+
+    sriwijayaData.push([counter * 1.5, Math.round(sriwijayaPrice / sriwijayaCount)]);
+    garudaData.push([counter * 1.5, Math.round(garudaPrice / garudaCount)]);
+    lionData.push([counter * 1.5, Math.round(lionPrice / lionCount)]);
+    wingsData.push([counter * 1.5, Math.round(wingsPrice / wingsCount)]);
+    namairData.push([counter * 1.5, Math.round(namairPrice / namairCount)]);
+    airasiaData.push([counter * 1.5, Math.round(airasiaPrice / airasiaCount)]);
+    batikData.push([counter * 1.5, Math.round(batikPrice / batikCount)]);
+    citilinkData.push([counter * 1.5, Math.round(citilinkPrice / citilinkPrice)]);
+    jetstarData.push([counter * 1.5, Math.round(jetstarPrice / jetstarCount)]);
+
   }
-
-  var maxPrize = Math.max(Math.max(...dpsAvgPrice), 
-    Math.max(...subAvgPrice), 
-    Math.max(...jogAvgPrice), 
-    Math.max(...knoAvgPrice));
-
-  // console.log(maxPrize);
-
+  
   var totalNum = dpsNum + subNum + jogNum + knoNum;
   $('#numTickets').text(totalNum);
   $('#numDays').text(counter);
@@ -47984,23 +48040,65 @@ $(function () {
   var weeklyNum = (firstWeek + secondWeek + thirdWeek + fourthWeek) / 4;
   $('#weeklyTickets').text(Math.round(weeklyNum));
 
-  var dataDeparture = {
-    datasets: [{
-      data: [
-        dpsNum,
-        subNum,
-        jogNum,
-        knoNum
-      ],
-      backgroundColor: [
-        '#29B0D0',
-        '#4C6579',
-        '#F57E2E',
-        '#C8E0E4'
-      ]
-    }],
-    labels: ['Denpasar (DPS)', 'Surabaya (SUB)', 'Jogjakarta (JOG)', 'Kuala Namu (KNO)']
+  var dataDeparture = [{
+    name: 'Data Departure',
+    type: 'pie',
+    radius: ['40%', '80%'],
+    center: ['50%', '57.5%'],
+    data: [
+      {
+        value: dpsNum,
+        name: 'Denpasar (DPS)'
+      },
+      {
+        value: subNum,
+        name: 'Surabaya (SBY)'
+      },
+      {
+        value: jogNum,
+        name: 'Jogjakarta (JOG)'
+      },
+      {
+        value: knoNum,
+        name: 'Kuala Namu (KNO)'
+      }
+    ],
+    label: {
+      normal: {
+        fontFamily: 'Roboto, sans-serif',
+        fontSize: 12
+      }
+    },
+    labelLine: {
+      normal: {
+        show: false
+      }
+    },
+    markLine: {
+      lineStyle: {
+        normal: {
+          width: 1
+        }
+      }
+    }
+  }];
+
+  var donutOption = {
+    tooltip: {
+      trigger: 'item',
+      formatter: '{a} <br/>{b}: {c} ({d}%)',
+      textStyle: {
+        fontSize: 11,
+        fontFamily: 'Roboto, sans-serif'
+      }
+    },
+    series: dataDeparture
   };
+
+  var donut = document.getElementById('departureGraph');
+  var donutChart = echarts.init(donut);
+  donutChart.setOption(donutOption);
+  donutChart.resize();
 
   var airlineData = [
     {
@@ -48073,6 +48171,7 @@ $(function () {
       pie: {
         show: true,
         radius: 1,
+        innerRadius: 0.5,
         label: {
           show: true,
           radius: 2 / 3,
@@ -48085,26 +48184,6 @@ $(function () {
       hoverable: true,
       clickable: true
     }
-  });
-
-
-  var optionpie = {
-    responsive: true,
-    legend: {
-      display: false,
-    },
-    animation: {
-      animateScale: true,
-      animateRotate: true
-    }
-  };
-
-  // For a doughnut chart
-  var ctx6 = document.getElementById('departureGraph');
-  var departureGraph = new Chart(ctx6, {
-    type: 'doughnut',
-    data: dataDeparture,
-    options: optionpie
   });
 
   var ctx4 = document.getElementById('avgPricePerDept');
@@ -48164,6 +48243,286 @@ $(function () {
     }
   });
 
+  $.plot("#avgPriceSriwijaya", [{
+    data: sriwijayaData
+  }], {
+    series: {
+      bars: {
+        show: true,
+        lineWidth: 0,
+        fillColor: '#4E6577'
+      }
+    },
+    grid: {
+      borderWidth: 0.5,
+      borderColor: '#D9D9D9'
+    },
+    yaxis: {
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    },
+    xaxis: {
+      show: false,
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    }
+  });
+
+  $.plot("#avgPriceGaruda", [{
+    data: garudaData
+  }], {
+    series: {
+      bars: {
+        show: true,
+        lineWidth: 0,
+        fillColor: '#4E6577'
+      }
+    },
+    grid: {
+      borderWidth: 0.5,
+      borderColor: '#D9D9D9'
+    },
+    yaxis: {
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    },
+    xaxis: {
+      show: false,
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    }
+  });
+
+  $.plot("#avgPriceLion", [{
+    data: lionData
+  }], {
+    series: {
+      bars: {
+        show: true,
+        lineWidth: 0,
+        fillColor: '#4E6577'
+      }
+    },
+    grid: {
+      borderWidth: 0.5,
+      borderColor: '#D9D9D9'
+    },
+    yaxis: {
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    },
+    xaxis: {
+      show: false,
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    }
+  });
+
+  $.plot("#avgPriceWings", [{
+    data: wingsData
+  }], {
+    series: {
+      bars: {
+        show: true,
+        lineWidth: 0,
+        fillColor: '#4E6577'
+      }
+    },
+    grid: {
+      borderWidth: 0.5,
+      borderColor: '#D9D9D9'
+    },
+    yaxis: {
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    },
+    xaxis: {
+      show: false,
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    }
+  });
+
+  $.plot("#avgPriceNamair", [{
+    data: namairData
+  }], {
+    series: {
+      bars: {
+        show: true,
+        lineWidth: 0,
+        fillColor: '#4E6577'
+      }
+    },
+    grid: {
+      borderWidth: 0.5,
+      borderColor: '#D9D9D9'
+    },
+    yaxis: {
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    },
+    xaxis: {
+      show: false,
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    }
+  });
+
+  $.plot("#avgPriceAirasia", [{
+    data: airasiaData
+  }], {
+    series: {
+      bars: {
+        show: true,
+        lineWidth: 0,
+        fillColor: '#4E6577'
+      }
+    },
+    grid: {
+      borderWidth: 0.5,
+      borderColor: '#D9D9D9'
+    },
+    yaxis: {
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    },
+    xaxis: {
+      show: false,
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    }
+  });
+
+  $.plot("#avgPriceBatik", [{
+    data: batikData
+  }], {
+    series: {
+      bars: {
+        show: true,
+        lineWidth: 0,
+        fillColor: '#4E6577'
+      }
+    },
+    grid: {
+      borderWidth: 0.5,
+      borderColor: '#D9D9D9'
+    },
+    yaxis: {
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    },
+    xaxis: {
+      show: false,
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    }
+  });
+
+  $.plot("#avgPriceCitilink", [{
+    data: citilinkData
+  }], {
+    series: {
+      bars: {
+        show: true,
+        lineWidth: 0,
+        fillColor: '#4E6577'
+      }
+    },
+    grid: {
+      borderWidth: 0.5,
+      borderColor: '#D9D9D9'
+    },
+    yaxis: {
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    },
+    xaxis: {
+      show: false,
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    }
+  });
+
+  $.plot("#avgPriceJetstar", [{
+    data: jetstarData
+  }], {
+    series: {
+      bars: {
+        show: true,
+        lineWidth: 0,
+        fillColor: '#4E6577'
+      }
+    },
+    grid: {
+      borderWidth: 0.5,
+      borderColor: '#D9D9D9'
+    },
+    yaxis: {
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    },
+    xaxis: {
+      show: false,
+      tickColor: '#d9d9d9',
+      font: {
+        color: '#666',
+        size: 10
+      }
+    }
+  });
+
+  // Helper function
   function labelFormatter(label, series) {
     return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
   }
