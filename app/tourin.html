@@ -28,6 +28,11 @@
     .inline {
         display: inline-block;
     }
+
+    .slim-card-title {
+        font-size: 15px !important;
+        letter-spacing: 1.5px;
+    }
 </style>
 
 <body class="dashboard-4">
@@ -120,7 +125,7 @@
                 <!-- col-6 -->
                 <div class="col-lg-6">
                     <div class="card card-sales">
-                        <h5 class="slim-card-title tx-primary" style="font-size: 14px;">Average Total Tickets Per Time</h5>
+                        <h5 class="slim-card-title tx-primary" style="font-size: 14px">Average Total Tickets Per Time</h5>
                         <div class="row">
                             <div class="col">
                                 <label class="tx-12">Daily</label>
@@ -156,7 +161,9 @@
             <div class="row" style="margin-top: 4vh; margin-bottom: 4vh;">
                 <div class="col-lg-6">
                     <div class="card card-body">
-                        <h6 class="slim-card-title mg-b-15" style="text-align: center;">Total tickets per departure place</h6>
+                        <h6 class="slim-card-title mg-b-15" style="text-align: center; font-size: 13px !important">
+                            Total tickets per departure place
+                        </h6>
                         <div class="bd pd-b-30 inside-graph">
                             <div id="departureGraph" class="ht-200 ht-sm-300"></div>
                         </div>
@@ -166,7 +173,9 @@
                 <!-- col -->
                 <div class="col-lg-6">
                     <div class="card card-body">
-                        <h6 class="slim-card-title mg-b-15" style="text-align: center;">Total tickets per airlines</h6>
+                        <h6 class="slim-card-title mg-b-15" style="text-align: center; font-size: 13px !important">
+                            Total tickets per airlines
+                        </h6>
                         <div class="bd pd-15 inside-graph">
                             <div id="airlineGraph" class="ht-200 ht-sm-300"></div>
                         </div>
@@ -180,8 +189,29 @@
             <div class="row" style="margin-top: 4vh; margin-bottom: 4vh;">
                 <div class="col-lg-12">
                     <div class="card card-body">
-                        <h6 class="slim-card-title mg-b-15" style="text-align: center;">Ticket's Average Price Daily Report Based On Departure Place</h6>
-                        <canvas id="avgPricePerDept" height="300" style="margin-top: 2vh;"></canvas>
+                        <h6 class="slim-card-title mg-b-15" style="text-align: center;">Ticket's Price Daily Report Based On Departure Place</h6>
+                        <div class="row">
+                            <div class="col-lg-3"></div>
+                            <div class="col-lg-3"></div>
+                            <div class="col-lg-3"></div>
+                            <div class="col-lg-3 form-group">
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <select class="form-control inline" id="deptChoice">
+                                            <option value="avg">Average</option>
+                                            <option value="min">Minimum</option>
+                                            <option value="max">Maximum</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" class="btn btn-primary inline go-button" style="border-radius: 10px;">Go!</button>
+                                    <div class="col-lg-3"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <canvas id="avgPricePerDept" class="deptGraph" height="400"></canvas>
+                        <canvas id="minPricePerDept" class="deptGraph" height="400"></canvas>
+                        <canvas id="maxPricePerDept" class="deptGraph" height="400"></canvas>
                     </div>
                     <!-- card -->
                 </div>
@@ -258,6 +288,11 @@
 
     <script>
         $(document).ready(() => {
+
+            var selectedDept = $('#deptChoice').val();
+            $('.deptGraph').hide();
+            $('#' + selectedDept.toLowerCase() + 'PricePerDept').show();
+
             var selectedAirline = $('#airlineChoice').find(":selected").text();
             $('.airPlaneGraph').hide();
             $('.' + selectedAirline.toLowerCase()).show();
@@ -266,7 +301,12 @@
                 var selectedAirline = $('#airlineChoice').find(":selected").text();
                 $('.airPlaneGraph').hide();
                 $('.' + selectedAirline.toLowerCase()).show();
+
+                var selectedDept = $('#deptChoice').val();
+                $('.deptGraph').hide();
+                $('#' + selectedDept.toLowerCase() + 'PricePerDept').show();
             });
+
         });
     </script>
 
