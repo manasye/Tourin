@@ -63070,7 +63070,8 @@ $(function () {
     firstWeek = 0,
     secondWeek = 0,
     thirdWeek = 0,
-    fourthWeek = 0;
+    fourthWeek = 0,
+    lastThreeDays = 0;
 
   var dpsNum = 0,
     subNum = 0,
@@ -63126,8 +63127,10 @@ $(function () {
       secondWeek += tickets[id].length;
     } else if (counter <= 20) {
       thirdWeek += tickets[id].length;
-    } else {
+    } else if (counter <= 27) {
       fourthWeek += tickets[id].length;
+    } else {
+      lastThreeDays += tickets[id].length;
     }
 
     var dpsPrice = 0,
@@ -63402,8 +63405,11 @@ $(function () {
   $('#dailyTickets').text(Math.round(totalNum / counter));
   $('#monthlyTickets').text(totalNum);
 
-  var weeklyNum = (firstWeek + secondWeek + thirdWeek + fourthWeek) / 4;
-  $('#weeklyTickets').text(Math.round(weeklyNum));
+  $('#firstWeek').text(Math.round(firstWeek / 7));
+  $('#secondWeek').text(Math.round(secondWeek / 7));
+  $('#thirdWeek').text(Math.round(thirdWeek / 7));
+  $('#fourthWeek').text(Math.round(fourthWeek / 7));
+  $('#lastThreeDays').text(Math.round(lastThreeDays / 3));
 
   var dataDeparture = [{
   name: 'Data Departure',
