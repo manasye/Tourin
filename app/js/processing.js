@@ -63098,6 +63098,11 @@ $(function () {
     jogMinPrice = [],
     knoMinPrice = [];
 
+  var dpsMinAirlines = [],
+    subMinAirlines = [],
+    jogMinAirlines = [],
+    knoMinAirlines = [];
+
   var dpsMaxPrice = [],
     subMaxPrice = [],
     jogMaxPrice = [],
@@ -63135,6 +63140,11 @@ $(function () {
       jogMin = Number.MAX_SAFE_INTEGER,
       knoMin = Number.MAX_SAFE_INTEGER;
 
+    var dpsMinAirline = '',
+      subMinAirline = '',
+      jogMinAirline = '',
+      knoMinAirline = '';
+
     var dpsMax = 0,
       subMax = 0,
       jogMax = 0,
@@ -63171,6 +63181,7 @@ $(function () {
         dpsPrice += parseInt(element.price);
         if (parseInt(element.price) <= dpsMin) {
           dpsMin = parseInt(element.price);
+          dpsMinAirline = element.airlines;
         }
         if (parseInt(element.price) >= dpsMax) {
           dpsMax = parseInt(element.price);
@@ -63181,6 +63192,7 @@ $(function () {
         subPrice += parseInt(element.price);
         if (parseInt(element.price) <= subMin) {
           subMin = parseInt(element.price);
+          subMinAirline = element.airlines;
         }
         if (parseInt(element.price) >= subMax) {
           subMax = parseInt(element.price);
@@ -63191,6 +63203,7 @@ $(function () {
         jogPrice += parseInt(element.price);
         if (parseInt(element.price) <= jogMin) {
           jogMin = parseInt(element.price);
+          jogMinAirline = element.airlines;
         }
         if (parseInt(element.price) >= jogMax) {
           jogMax = parseInt(element.price);
@@ -63201,6 +63214,7 @@ $(function () {
         knoPrice += parseInt(element.price);
         if (parseInt(element.price) <= knoMin) {
           knoMin = parseInt(element.price);
+          knoMinAirline = element.airlines;
         }
         if (parseInt(element.price) >= knoMax) {
           knoMax = parseInt(element.price);
@@ -63270,6 +63284,12 @@ $(function () {
     jogMaxPrice.push(jogMax);
     knoMaxPrice.push(knoMax);
 
+    // Push the minimum airlines per day based on departure cities
+    dpsMinAirlines.push(dpsMinAirline);
+    subMinAirlines.push(subMinAirline);
+    jogMinAirlines.push(jogMinAirline);
+    knoMinAirlines.push(knoMinAirline);
+
     // Push day's title
     daysTitle.push(id);
 
@@ -63284,7 +63304,97 @@ $(function () {
     jetstarData.push([counter * 1.75, Math.round(jetstarPrice / jetstarCount)]);
 
   }
-  console.log(dpsMaxPrice);
+
+  console.log(dpsMinAirlines)
+  console.log(subMinAirlines)
+  console.log(jogMinAirlines)
+  console.log(knoMinAirlines)
+
+  // Count on denpasar dept airline
+  var airasia = 0, lion = 0, sriwijaya = 0, citilink = 0, batik = 0;
+  dpsMinAirlines.forEach(el => {
+    if (el === 'AIRASIA') airasia++;
+    else if (el === 'LION') lion++;
+    else if (el === 'SRIWIJAYA') sriwijaya++;
+    else if (el === 'CITILINK') citilink++;
+    else if (el === 'BATIK') batik++;
+  });
+
+  // Append to html
+  $('#lionDps').text('Lion (' + Math.round(lion / counter * 100) + '%)');
+  $('#lionDpsProg').attr('aria-valuenow', Math.round(lion / counter * 100))
+    .css('width', Math.round(lion / counter * 100) + '%');
+
+  $('#airasiaDps').text('Airasia (' + Math.round(airasia / counter * 100) + '%)');
+  $('#airasiaDpsProg').attr('aria-valuenow', Math.round(airasia / counter * 100))
+    .css('width', Math.round(airasia / counter * 100) + '%');
+
+  $('#otherDps').text('Others (' + (100 - Math.round(lion / counter * 100) - Math.round(airasia / counter * 100)) + '%)');
+  $('#otherDpsProg').attr('aria-valuenow', 100 - Math.round(lion / counter * 100) - Math.round(airasia / counter * 100))
+    .css('width', 100 - Math.round(lion / counter * 100) - Math.round(airasia / counter * 100) + '%');
+
+  // Count on surabaya dept airline
+  airasia = 0, lion = 0, sriwijaya = 0, citilink = 0;
+  subMinAirlines.forEach(el => {
+    if (el === 'AIRASIA') airasia++;
+    else if (el === 'LION') lion++;
+    else if (el === 'SRIWIJAYA') sriwijaya++;
+    else if (el === 'CITILINK') citilink++;
+  });
+
+  // Append to html
+  $('#lionSub').text('Lion (' + Math.round(lion / counter * 100) + '%)');
+  $('#lionSubProg').attr('aria-valuenow', Math.round(lion / counter * 100))
+    .css('width', Math.round(lion / counter * 100) + '%');
+
+  $('#airasiaSub').text('Airasia (' + Math.round(airasia / counter * 100) + '%)');
+  $('#airasiaSubProg').attr('aria-valuenow', Math.round(airasia / counter * 100))
+    .css('width', Math.round(airasia / counter * 100) + '%');
+
+  $('#otherSub').text('Others (' + (100 - Math.round(lion / counter * 100) - Math.round(airasia / counter * 100)) + '%)');
+  $('#otherSubProg').attr('aria-valuenow', 100 - Math.round(lion / counter * 100) - Math.round(airasia / counter * 100))
+    .css('width', 100 - Math.round(lion / counter * 100) - Math.round(airasia / counter * 100) + '%');
+
+  // Count on jogjakarta dept airline
+  airasia = 0, lion = 0;
+  jogMinAirlines.forEach(el => {
+    if (el === 'AIRASIA') airasia++;
+    else if (el === 'LION') lion++;
+  });
+
+  // Append to html
+  $('#lionJog').text('Lion (' + Math.round(lion / counter * 100) + '%)');
+  $('#lionJogProg').attr('aria-valuenow', Math.round(lion / counter * 100))
+    .css('width', Math.round(lion / counter * 100) + '%');
+
+  $('#airasiaJog').text('Airasia (' + Math.round(airasia / counter * 100) + '%)');
+  $('#airasiaJogProg').attr('aria-valuenow', Math.round(airasia / counter * 100))
+    .css('width', Math.round(airasia / counter * 100) + '%');
+
+  $('#otherJog').text('Others (' + (100 - Math.round(lion / counter * 100) - Math.round(airasia / counter * 100)) + '%)');
+  $('#otherJogProg').attr('aria-valuenow', 100 - Math.round(lion / counter * 100) - Math.round(airasia / counter * 100))
+    .css('width', 100 - Math.round(lion / counter * 100) - Math.round(airasia / counter * 100) + '%');
+
+  // Count on kuala namu dept airline
+  lion = 0, sriwijaya = 0, citilink = 0;
+  knoMinAirlines.forEach(el => {
+    if (el === 'LION') lion++;
+    else if (el === 'SRIWIJAYA') sriwijaya++;
+    else if (el === 'CITILINK') citilink++;
+  });
+
+  // Append to html
+  $('#lionKno').text('Lion (' + Math.round(lion / counter * 100) + '%)');
+  $('#lionKnoProg').attr('aria-valuenow', Math.round(lion / counter * 100))
+    .css('width', Math.round(lion / counter * 100) + '%');
+
+  $('#citilinkKno').text('Citilink (' + Math.round(citilink / counter * 100) + '%)');
+  $('#citilinkKnoProg').attr('aria-valuenow', Math.round(citilink / counter * 100))
+    .css('width', Math.round(citilink / counter * 100) + '%');
+
+  $('#sriwijayaKno').text('Sriwijaya (' + (100 - Math.round(lion / counter * 100) - Math.round(citilink / counter * 100)) + '%)');
+  $('#sriwijayaKnoProg').attr('aria-valuenow', 100 - Math.round(lion / counter * 100) - Math.round(citilink / counter * 100))
+    .css('width', 100 - Math.round(lion / counter * 100) - Math.round(citilink / counter * 100) + '%');
 
   var totalNum = dpsNum + subNum + jogNum + knoNum;
   $('#numTickets').text(totalNum);
@@ -63484,7 +63594,7 @@ $(function () {
           ticks: {
             beginAtZero: false,
             fontSize: 10,
-            max: 1600000
+            max: 2400000
           }
         }],
         xAxes: [{
@@ -63596,7 +63706,7 @@ $(function () {
           ticks: {
             beginAtZero: false,
             fontSize: 10,
-            max: 5000000
+            max: 7000000
           }
         }],
         xAxes: [{

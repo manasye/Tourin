@@ -35,7 +35,7 @@
     }
 </style>
 
-<body class="dashboard-4">
+<body>
     <div class="slim-header">
         <div class="container">
             <div class="slim-header-left">
@@ -46,16 +46,6 @@
                 </h2>
 
             </div>
-            <div class="slim-header-right">
-                <!-- <div class="search-box">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <button class="btn btn-primary">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div> -->
-                <!-- search-box -->
-            </div>
-            <!-- header-right -->
         </div>
         <!-- container -->
     </div>
@@ -209,9 +199,192 @@
 
                             </div>
                         </div>
-                        <canvas id="avgPricePerDept" class="deptGraph" height="400"></canvas>
-                        <canvas id="minPricePerDept" class="deptGraph" height="400"></canvas>
-                        <canvas id="maxPricePerDept" class="deptGraph" height="400"></canvas>
+                        <canvas id="avgPricePerDept" class="deptGraph" height="500"></canvas>
+                        <canvas id="minPricePerDept" class="deptGraph" height="500"></canvas>
+                        <canvas id="maxPricePerDept" class="deptGraph" height="500"></canvas>
+                    </div>
+                    <!-- card -->
+                </div>
+                <!-- col -->
+            </div>
+            <!-- row -->
+
+            <div class="report-summary-header">
+                <div>
+                    <h4 class="tx-inverse mg-b-3">Cheapest Daily Ticket Airlines Per Departure Place</h4>
+                    <p class="mg-b-0">
+                        <i class="icon ion-calendar mg-r-3"></i> June 10, 2018 - July 10, 2018</p>
+                </div>
+                <div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 4vh; margin-bottom: 4vh;">
+                <div class="col-lg-3">
+                    <div class="card card-body">
+                        <img src="img/denpasar.png" alt="" style="height: 150px; margin-bottom: 2vh;">
+                        <h6 class="slim-card-title mg-b-15" style="text-align: center; 
+                            font-size: .95rem !important;
+                            color: #2962FF;
+                            margin-bottom: 0px;">Denpasar
+                        </h6>
+                        <div class="tx-24 mg-b-10 tx-center op-5">
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                        </div>
+
+                        <label id="lionDps"></label>
+                        <div class="progress mg-b-10">
+                            <div id="lionDpsProg" class="progress-bar bg-danger progress-bar-xs" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <!-- progress -->
+
+                        <label id="airasiaDps"></label>
+                        <div class="progress mg-b-10">
+                            <div id="airasiaDpsProg" class="progress-bar bg-primary progress-bar-xs" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <!-- progress -->
+
+                        <label id="otherDps"></label>
+                        <div class="progress mg-b-10">
+                            <div id="otherDpsProg" class="progress-bar bg-success progress-bar-xs" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <!-- progress -->
+                    </div>
+                    <!-- card -->
+                </div>
+                <!-- col -->
+
+                <div class="col-lg-3">
+                    <div class="card card-body">
+                        <img src="img/surabaya.png" alt="" style="height: 150px; margin-bottom: 2vh;">
+                        <h6 class="slim-card-title mg-b-15" style="text-align: center; 
+                            font-size: .95rem !important;
+                            color: #2962FF;
+                            margin-bottom: 0px;">Surabaya
+                        </h6>
+                        <div class="tx-24 mg-b-10 tx-center op-5">
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                        </div>
+
+                        <label id="lionSub"></label>
+                        <div class="progress mg-b-10">
+                            <div id="lionSubProg" class="progress-bar bg-danger progress-bar-xs" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <!-- progress -->
+
+                        <label id="airasiaSub"></label>
+                        <div class="progress mg-b-10">
+                            <div id="airasiaSubProg" class="progress-bar bg-primary progress-bar-xs" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <!-- progress -->
+
+                        <label id="otherSub"></label>
+                        <div class="progress mg-b-10">
+                            <div id="otherSubProg" class="progress-bar bg-success progress-bar-xs" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <!-- progress -->
+                    </div>
+                    <!-- card -->
+                </div>
+                <!-- col -->
+                <div class="col-lg-3">
+                    <div class="card card-body">
+                        <img src="img/jogjakarta.png" alt="" style="height: 150px; margin-bottom: 2vh;">
+                        <h6 class="slim-card-title mg-b-15" style="text-align: center; 
+                            font-size: .95rem !important;
+                            color: #2962FF;
+                            margin-bottom: 0px;">Jogjakarta
+                        </h6>
+                        <div class="tx-24 mg-b-10 tx-center op-5">
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                        </div>
+                        
+                        <label id="airasiaJog"></label>
+                        <div class="progress mg-b-10">
+                            <div id="airasiaJogProg" class="progress-bar bg-primary progress-bar-xs" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <!-- progress -->
+
+                        <label id="lionJog"></label>
+                        <div class="progress mg-b-10">
+                            <div id="lionJogProg" class="progress-bar bg-danger progress-bar-xs" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <!-- progress -->
+
+                        <label id="otherJog"></label>
+                        <div class="progress mg-b-10">
+                            <div id="otherJogProg" class="progress-bar bg-success progress-bar-xs" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <!-- progress -->
+                    </div>
+                    <!-- card -->
+                </div>
+                <!-- col -->
+                <div class="col-lg-3">
+                    <div class="card card-body">
+                        <img src="img/medan.png" alt="" style="height: 150px; margin-bottom: 2vh;">
+                        <h6 class="slim-card-title mg-b-15" style="text-align: center; 
+                            font-size: .95rem !important;
+                            color: #2962FF;
+                            margin-bottom: 0px;">Kuala Namu
+                        </h6>
+                        <div class="tx-24 mg-b-10 tx-center op-5">
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                        </div>
+
+                        <label id="lionKno"></label>
+                        <div class="progress mg-b-10">
+                            <div id="lionKnoProg" class="progress-bar bg-danger progress-bar-xs" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <!-- progress -->
+
+                        <label id="citilinkKno"></label>
+                        <div class="progress mg-b-10">
+                            <div id="citilinkKnoProg" class="progress-bar bg-success progress-bar-xs" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <!-- progress -->
+
+                        <label id="sriwijayaKno"></label>
+                        <div class="progress mg-b-10">
+                            <div id="sriwijayaKnoProg" class="progress-bar bg-warning progress-bar-xs" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <!-- progress -->
                     </div>
                     <!-- card -->
                 </div>
