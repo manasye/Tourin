@@ -33,6 +33,45 @@
         font-size: 15px !important;
         letter-spacing: 1.5px;
     }
+
+    .red {
+        color: #dc3545 !important;
+    }
+
+    .blue {
+        color: #1b84e7 !important;
+    }
+
+    .green {
+        color: #23BF08 !important;
+    }
+
+    .yellow {
+        color: #F49917 !important;
+    }
+    .img-container {
+        height: 150px !important;
+        overflow: hidden;
+        margin-bottom: 2vh;
+    }
+    .img-place {
+        height: 150px; 
+        transition: .2s ease-out;
+        background-size: cover;
+    }
+    .img-place:hover {
+        height: 200px !important;
+        transform: translate(-25px, -10px);
+    }
+    .img-place-sub {
+        height: 150px; 
+        transition: .2s ease-out;
+        background-size: cover;
+    }
+    .img-place-sub:hover {
+        height: 200px !important;
+        transform: translate(-80px, -10px);
+    }
 </style>
 
 <body>
@@ -239,23 +278,25 @@
             <div class="row" style="margin-top: 4vh; margin-bottom: 4vh;">
                 <div class="col-lg-3">
                     <div class="card card-body">
-                        <img src="img/denpasar.png" alt="" style="height: 150px; margin-bottom: 2vh;">
+                        <div class="img-container">
+                            <img src="img/denpasar.png" alt="" class="img-place">
+                        </div>
                         <h6 class="slim-card-title mg-b-15" style="text-align: center; 
                             font-size: .95rem !important;
                             color: #2962FF;
                             margin-bottom: 0px;">Denpasar
                         </h6>
                         <div class="tx-24 mg-b-10 tx-center op-5">
-                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
-                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
-                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
-                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
-                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
-                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
-                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
-                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
-                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
-                            <i class="icon ion-android-plane" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane red" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane red" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane red" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane red" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane red" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane blue" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane blue" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane blue" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane green" style="font-size: 1.2rem"></i>
+                            <i class="icon ion-android-plane green" style="font-size: 1.2rem"></i>
                         </div>
 
                         <label id="lionDps"></label>
@@ -282,7 +323,9 @@
 
                 <div class="col-lg-3">
                     <div class="card card-body">
-                        <img src="img/surabaya.png" alt="" style="height: 150px; margin-bottom: 2vh;">
+                        <div class="img-container">
+                            <img src="img/surabaya.png" alt="" class="img-place-sub">
+                        </div>
                         <h6 class="slim-card-title mg-b-15" style="text-align: center; 
                             font-size: .95rem !important;
                             color: #2962FF;
@@ -324,7 +367,9 @@
                 <!-- col -->
                 <div class="col-lg-3">
                     <div class="card card-body">
-                        <img src="img/jogjakarta.png" alt="" style="height: 150px; margin-bottom: 2vh;">
+                        <div class="img-container">
+                            <img src="img/jogjakarta.png" alt="" class="img-place">
+                        </div>
                         <h6 class="slim-card-title mg-b-15" style="text-align: center; 
                             font-size: .95rem !important;
                             color: #2962FF;
@@ -366,7 +411,9 @@
                 <!-- col -->
                 <div class="col-lg-3">
                     <div class="card card-body">
-                        <img src="img/medan.png" alt="" style="height: 150px; margin-bottom: 2vh;">
+                        <div class="img-container">
+                            <img src="img/medan.png" alt="" class="img-place">
+                        </div>
                         <h6 class="slim-card-title mg-b-15" style="text-align: center; 
                             font-size: .95rem !important;
                             color: #2962FF;
