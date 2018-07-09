@@ -60854,7 +60854,7 @@ $(function () {
             ticks: {
               beginAtZero: false,
               fontSize: 10,
-              max: 2400000
+              max: 3000000
             }
           }
         ],
@@ -60916,7 +60916,7 @@ $(function () {
             ticks: {
               beginAtZero: false,
               fontSize: 10,
-              max: 2000000
+              max: 2200000
             }
           }
         ],
@@ -60978,7 +60978,7 @@ $(function () {
             ticks: {
               beginAtZero: false,
               fontSize: 10,
-              max: 7000000
+              max: 5500000
             }
           }
         ],
