@@ -44,15 +44,11 @@ def get_flight_infos(url):
 		td2 = row.find('td', {'class' : 'td2'})
 		dep_city = td2.find('h5').text
 		dep_time = td2.find('h4').text
-		# td8 = row.find('td', {'class' : 'td8'})
-		# flight_mark = td8.find('div', {'class' : 'flight_mark'})
-		# promo = flight_mark.find('div', {'class' : 'ribbon dash'})
 		datas = [row.get(data) for data in data_names]
 		datas.append(dep_city)
 		datas.append(dep_time)
 		datas.append(arr_city)
 		datas.append(arr_time)
-		# datas.append(promo)
 		flight_infos.append(datas)
 		
 	return flight_infos
