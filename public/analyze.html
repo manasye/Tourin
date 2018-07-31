@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Tourin - A data dashboard for flight tickets</title>
+
+    <!-- vendor css -->
+    <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="lib/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="lib/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link href="lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link href="lib/select2/css/select2.min.css" rel="stylesheet">
+
+    <!-- Icon -->
+    <link rel="shortcut icon" type="image/png" href="img/logo.png">
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="css/helper.css">
+    <link rel="stylesheet" href="css/analyze.css">
+
+</head>
+
+<body class="dashboard-4">
+    <div class="slim-header">
+        <div class="container">
+            <div class="slim-header-left">
+                <h2 class="slim-logo">
+                    <a href="index.html">
+                        tour.in
+                    </a>
+                </h2>
+            </div>
+            <div class="slim-header-right">
+                <img src="img/logo.png" alt="LOGO" style="padding-top: 1vh;width: 5vw">
+            </div>
+        </div>
+        <!-- container -->
+    </div>
+    <!-- Header -->
+
+    <div class="slim-navbar">
+        <div class="container">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="icon ion-ios-home-outline"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="analyze.html">
+                        <i class="icon ion-ios-pulse"></i>
+                        <span>Analyze</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- container -->
+    </div>
+    <!-- Navbar -->
+
+    <div class="slim-mainpanel">
+        <div class="container pd-t-50 pd-b-50">
+            <div class="card card-body">
+                <div class="row" style="margin: 0">
+                    <div class="col-sm-3">
+                        <img src="img/plane.png" alt="PLANE" class="img-icon">
+                    </div>
+                    <div class="col-sm-9">
+                        <p>In Tourin, we collect the data of airplane ticket from 5 big cities in Indonesia such as Jakarta,
+                            Denpasar, Surabaya, Jogjakarta, and Medan. All the tickets that we collected are flights from
+                            4 cities that are going to Jakarta. We choose these 5 cities because of course they're big cities
+                            and therefore have the busiest flights. And the reason why we choose Jakarta as the destination
+                            is because it is the capital city of Indonesia and there are more flight going to Jakarta compared
+                            to other cities. Another reason we choose Jakarta as departure city is because its distinguished
+                            airlines that could help creating a legible data analysis.</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p> From these data, we quite sure to make generalize judgement for all the domestic flight in Indonesia.
+                            We scraped these tickets from a well known indonesian online travel booking website, tiket.com.
+                            Data collected consist of the information about departure city, arrival city, departure time,
+                            arrival time, price, and airline. Then from those data, we visualize it into graphs (bar chart,
+                            pie chart, and line chart). The graphs includes total ticket based on departure city, total ticket
+                            based on flight company, price based on departure city, average price based on airline.</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="img/graphs.png" alt="GRAPHS" class="img-icon">
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="img/price.png" alt="PRICE" class="img-icon">
+                    </div>
+                    <div class="col-sm-9">
+                        <p>As the goals of this porject is to have better understanding to when is the best time to book a flight,
+                            we will be more focusing on price based on departure city graph. Our data is collected 30 days
+                            before the departure date. We see that average price a flight goes to jakarta from 4 those cities
+                            increase significantly 8 days before the departure date. While 30 - 9 days before the departure
+                            date also have increasing trend but not really significant. This fact is also supported by the
+                            data of ticket availability in which we see that 4 - 1 week before the departure date, the available
+                            tickets don't decreased significantly, but 3 days before the departure date, the availability
+                            of ticket drop.</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p>According to data we've collected ,we could summarize that the best time to book a ticket is around
+                            30-8 days before the departure date. We can also summarize that Lion Air and Air Asia dominate
+                            budget flight from those 4 cities to Jakarta. Lion Air dominate 3 cities, whereas Air Asia with
+                            1 city. If we see the ticket's price fluctuation, Garuda Indonesia has the most stable price
+                            as the fact that its price doesn't increase significantly even 1 week before the departure date.
+                            This information could also be a consideration for choosing an airline.</p>
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="img/choices.png" alt="CHOICES" class="img-icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- container -->
+    </div>
+    <!-- slim-mainpanel -->
+
+    <script src="lib/jquery/js/jquery.js"></script>
+    <script src="lib/popper.js/js/popper.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+
+    <script src="js/helper.js"></script>
+</body>
+
+</html>

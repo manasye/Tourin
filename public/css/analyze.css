@@ -1,0 +1,22 @@
+.card {
+    flex-flow: row;
+}
+
+.img-icon {
+    width: 15vw;
+    display: block;
+    margin: auto;
+    max-width: 70%;
+}
+
+p {
+    text-align: justify;
+    font-size: 1rem;
+    font-family: "Lato";
+    letter-spacing: 0.8px;
+}
+
+.col-sm-9,
+.col-sm-3 {
+    margin-top: 3vh;
+}
