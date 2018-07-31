@@ -26,3 +26,5 @@ On the "TICKET PRICE DAILY REPORT BASED ON DEPARTURE PLACE" column, we show the 
 On the "CHEAPEST DAILY TICKET AIRLINES PER DEPARTURE PLACE" column, we show which airlines give the cheapest price from 4 cities to Jakarta.
 
 On the "TICKET'S AVERAGE PRICE DAILY REPORT BASED ON AIRLINES" we show the average ticket price daily based on airline companies.
+
+All scrapped data can be found in `public/js/processing.js`
